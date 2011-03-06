@@ -26,7 +26,7 @@ class CommandParser(object):
         command = args[0]
         if command not in self.commands:
             self.optparser.error("'%s' is not a valid command" % command)
-            
+
         options, values = self.optparser.parse_args(args[1:], values)
         return command, options, values
 
@@ -56,7 +56,7 @@ def main():
     command, options, args = parser.parse_args()
 
     items = set()
-    for arg in args: 
+    for arg in args:
         if os.path.isdir(arg):
             for f in glob(os.path.join(arg, '*.py')):
                 if os.path.isfile(f):
@@ -77,4 +77,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
